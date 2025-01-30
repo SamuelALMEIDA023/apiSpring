@@ -1,11 +1,17 @@
 package com.samdev.study.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity // conector com o objeto p/ o JPA (banco de dados)
+@Table(name = "tb-user") // nomeando a tabela do banco de dados
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Id // mostrando qual sera minha chave primaria
+    @GeneratedValue(strategy = GenerationType.AUTO) // sera auto-incrementado
     private Long id;
     private String name;
     private String email;
