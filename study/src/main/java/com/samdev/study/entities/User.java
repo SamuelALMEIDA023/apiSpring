@@ -1,5 +1,6 @@
 package com.samdev.study.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @JsonIgnore // vai fazer com o JPA consiga trazer os meus pedidos
     @OneToMany(mappedBy = "client")
     private List<Order> listOrder = new ArrayList<>();
 
