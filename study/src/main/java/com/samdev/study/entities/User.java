@@ -3,6 +3,8 @@ package com.samdev.study.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity // conector com o objeto p/ o JPA (banco de dados)
@@ -17,6 +19,9 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> listOrder = new ArrayList<>();
 
     public User() {
     }
@@ -63,6 +68,10 @@ public class User implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public List<Order> getListOrder() {
+        return listOrder;
     }
 
     public void setPassword(String password) {
