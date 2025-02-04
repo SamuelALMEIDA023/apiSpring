@@ -58,7 +58,9 @@ public class Order implements Serializable {
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus.getCode();
+        if(orderStatus != null) {
+            this.orderStatus = orderStatus.getCode();
+        }
     }
 
     public User getClient() {
