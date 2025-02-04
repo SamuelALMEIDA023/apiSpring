@@ -54,6 +54,7 @@ public class Order implements Serializable {
     }
 
     public OrderStatus getOrderStatus() {
+        // transformar o integer orderStatus tipo enum OrderStatus
         return OrderStatus.valueOf(orderStatus);
     }
 
