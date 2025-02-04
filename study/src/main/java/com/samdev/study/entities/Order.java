@@ -1,6 +1,7 @@
 package com.samdev.study.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.samdev.study.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -23,12 +24,16 @@ public class Order implements Serializable {
     @JoinColumn(name = "client_id")
     private User client;
 
+    // colocando o orderStatus como Integer pra mostar ao DB que estou gravando um num inteiro
+    private Integer orderStatus;
+
     public Order () {
     }
 
-    public Order(Long id, Instant moment, User client) {
+    public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         this.id = id;
         this.moment = moment;
+        setOrderStatus(orderStatus);
         this.client = client;
     }
 
@@ -48,6 +53,14 @@ public class Order implements Serializable {
         this.moment = moment;
     }
 
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus.getCode();
+    }
+
     public User getClient() {
         return client;
     }
@@ -55,6 +68,7 @@ public class Order implements Serializable {
     public void setClient(User client) {
         this.client = client;
     }
+
 
     @Override
     public boolean equals(Object o) {
