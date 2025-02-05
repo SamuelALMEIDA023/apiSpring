@@ -18,7 +18,9 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @Transient
+
+    @JsonIgnore // para evitar que a biblioteca jackson chame em looping infinito, o jsonIgnore organiza
+    @ManyToMany(mappedBy = "categories")
     // por ser uma lista de produtos para uma categoria, eu uso o set para evitar duplicação
     private Set<Product> products = new HashSet<>();
 
