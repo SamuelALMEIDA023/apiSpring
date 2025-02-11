@@ -61,6 +61,13 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
     }
 
+    public Double getSubTotal() {
+        if(quantity < 0 || price < 0) {
+            throw new IllegalArgumentException("Quantity and price have be positive");
+        }
+        return quantity * price;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
