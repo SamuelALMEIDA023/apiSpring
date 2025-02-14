@@ -37,7 +37,7 @@ A aplicação permite operações CRUD (Create, Read, Update, Delete) para entid
 🚀 Como Executar o Projeto
 
     Pré-requisitos
-       Java 17 instalado.
+       Java 23 instalado.
        Maven instalado.
        IDE de sua preferência (recomendado: IntelliJ IDEA ou Eclipse).
 
